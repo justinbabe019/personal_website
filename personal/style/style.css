@@ -41,6 +41,11 @@ ul {
     padding: 10px;
   }
 
+  .logo-link{
+    text-decoration: none;
+    color:black;
+  }
+
   .contactbox:hover{
     background-color: white;
   }
