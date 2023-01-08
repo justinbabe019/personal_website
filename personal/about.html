@@ -6,10 +6,11 @@
         <title>ncleong</title>
         <!--navbar-->
         <div class="navbar">
-            <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li style="float:right"><a class="active" href="./about.html">About</a></li>
+            <ul id="navbarul">
+                <li class="navbarli"><a href="./home.html">Home</a></li>
+                <li class="navbarli"><a href="./home.html#projects">Projects</a></li>
+                <li class="navbarli"><a href="./home.html#extraCurriculas">Extra Curriculas</a></li>
+                <li class="navbarli" style="float:right"><a class="active" href="./about.html">About</a></li>
             </ul>
         </div>
     </header>
@@ -21,22 +22,38 @@
         <h4>Last name: Leong</h6>
         <h4>Education:</h6>
         <ul>
-            <li>University of Michigan</li>
-            <li>Pui Ching Middle School, Macao</li>
+            <li class="education">University of Michigan</li>
+                <ul>
+                    <li class="sub-education">College of Engineering</li>
+                    <li class="sub-education">Bachelor of Science in Engineering(BSE) Computer Science</li>
+                    <li class="sub-education">Double major Electrical Engineering</li>
+                    <li class="sub-education">2026</li>
+                    <li class="sub-education">GPA: i dont know too</li>
+                </ul>
+            <li class="education">Pui Ching Middle School, Macao</li>
+                <ul>
+                    <li class="sub-education">GPA: 96.92/100</li>
+                </ul>
         </ul>
     </body>
+
     <footer>
         <div class="contactbox">
-            <a href="https://www.instagram.com/angie_leong.n.c/">
-                <img src="./assets/insta-logo.svg" alt="instagram" class="contact-logo">angie_leong.n.c</img>
+            <a href="https://www.instagram.com/angie_leong.n.c/" class="logo-link">
+                <img src="./assets/insta-logo.svg" alt="instagram" class="contact-logo">
             </a>
+            <a href="https://www.instagram.com/angie_leong.n.c/" class="logo-link"><p>Instagram: angie_leong.n.c</p></a>
         </div>
         <div class="contactbox">
-                <img src="./assets/mail-logo.svg" alt="mail" class="contact-logo">ncleong@umich.edu</img>
+            <img src="./assets/mail-logo.svg" alt="mail" class="contact-logo">
+            <p>e-mail: ncleong@umich.edu</p>
         </div>
         <div class="contactbox">
-            <a href="www.linkedin.com/in/nga-chi-angie-leong-a37a0924a">
-                <img src="./assets/linkedin-logo.svg" alt="linkedin" class="contact-logo">LinkedIn: angie_leong.n.c</img>
+            <a href="https://www.linkedin.com/in/nga-chi-angie-leong-a37a0924a" class="logo-link">
+                <img src="./assets/linkedin-logo.svg" alt="linkedin" class="contact-logo">
+            </a>
+            <a href="https://www.linkedin.com/in/nga-chi-angie-leong-a37a0924a" class="logo-link">
+                <p>LinkedIn: angie_leong.n.c</p>
             </a>
         </div>
     </footer>
