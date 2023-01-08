@@ -1,13 +1,8 @@
-body{
+.body{
     background-color: black;
     color: darksalmon;
 }
-.education{
-  margin:10px;
-}
-.sub-education{
-  margin: 10px;
-}
+
 /*navbar*/
 #navbarul {
     list-style-type: none;

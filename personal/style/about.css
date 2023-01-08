@@ -1,0 +1,16 @@
+.about-row{
+    padding-left: 100px;
+    display: flex;
+  }
+.about-col{
+    flex:50%;
+}
+.education{
+    margin:10px;  
+}
+.sub-education{
+    margin: 10px;
+}
+#about-h1{
+    text-align: center;
+}
