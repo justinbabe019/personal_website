@@ -4,6 +4,7 @@
   }
 .about-col{
     flex:50%;
+    color: #52DBDC;
 }
 .education{
     margin:10px;  
