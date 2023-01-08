@@ -1,3 +1,32 @@
 .bodybody{
-    padding-left: 20px;
+    padding-left: 10px;
+    color:rgb(230, 222, 207);
+}
+.extraCurriculas{
+    padding:10px;
+}
+#homename{
+    padding: 10px;
+    padding-left: 0px;
+}
+#homename h1{
+    display:inline;
+}
+#homename p{
+    display:inline;
+    float: right;
+    padding-right: 10px;
+}
+hr{
+    background-color:darksalmon;
+    height: 1px;
+    border:none;
+    padding: 0;
+}
+.special-hr{
+    border-top: 2px dotted #000;
+    padding: 0;
+}
+#projects{
+    padding: 10px;
 }

@@ -1,6 +1,6 @@
 /*this is for global stuffs like header, footer, background*/
 .body{
-    background-color: black;
+    background-color: rgb(47, 47, 51);
     color: darksalmon;
 }
 
@@ -53,3 +53,4 @@
   .contactbox:hover{
     background-color: white;
   }
+ 
