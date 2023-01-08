@@ -1,56 +1,55 @@
 /*this is for global stuffs like header, footer, background*/
 .body{
-    background-color: rgb(47, 47, 51);
-    color: darksalmon;
+  background-color: rgb(47, 47, 51);
+  color: darksalmon;
 }
 
 /*navbar*/
 #navbarul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: darksalmon;
-  }
-  
-  .navbarli {
-    float: left;
-  }
-  
-  .navbarli a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  .navbarli a:hover {
-    background-color: white;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darksalmon;
+}
 
-  /*footer*/
-  footer{
-    margin-top: 50px;
-    background-color: darksalmon;
-    color: black;
-  }
-  .contactbox{
-    display: flex;
-    justify-content: center;
-    float: center;
-  }
-  .contact-logo{
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-  }
-  .logo-link{
-    text-decoration: none;
-    color:black;
-  }
-  .contactbox:hover{
-    background-color: white;
-  }
- 
+.navbarli {
+  float: left;
+}
+
+.navbarli a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navbarli a:hover {
+  background-color: white;
+}
+
+/*footer*/
+footer{
+  margin-top: 50px;
+  background-color: darksalmon;
+  color: black;
+}
+.contactbox{
+  display: flex;
+  justify-content: center;
+  float: center;
+}
+.contact-logo{
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+.logo-link{
+  text-decoration: none;
+  color:black;
+}
+.contactbox:hover{
+  background-color: white;
+}
