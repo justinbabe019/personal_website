@@ -1,38 +1,45 @@
-.intro-bg h2,p,h3{
-    opacity: 100%;
-}
 .intro p{
     padding:10px;
     margin-left:10px;
     margin-right: 10px;
     color: white;
 }
-.intro-below p{
-    font-size: 20px;
-    border-radius: 20px;
-    border-style:solid;
-    border-color: white;
-}
-.intro-below{
-    width:120px;
-    text-align: center;
-    margin-left: 40%;
-}
-.intro-bewlow p:hover{
-    border-color:black;
-}
-.intro a{
+.intro p{
     color:white;
     text-decoration: none;
 }
-.intro a:hover{
+.more p:hover{
     color: black;
+}
+.more{
+    width: 20%;
+    margin-left: 40%;
+}
+.more p{
+    border-style: solid;
+    border-radius: 50px;
+    text-align: center;
+}
+.centered{
+    width:100%;
 }
 .intro{
     background-color:rgba(181, 48, 33,.8);
-    margin-left: 25%;
-    margin-right: 25%;
     padding: 10px;
     text-align: center;
     color:white;
+    position:absolute;
+    top: 30%;
+    left: 50%;
+    width: 50%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+}
+.container{
+    position: relative;
+    overflow: auto;
+}
+.container img{
+    display: block;
+    width: 100%;
 }
