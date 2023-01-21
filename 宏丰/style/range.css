@@ -1,14 +1,6 @@
-@media screen and (max-width: 600px) {
-    .first, .second {
-      width: 100%;
-    }
-}
-.first, .second{
-    float:left;
-}
-.left{
-    width: 10px;
-}
-.right{
-    width: 50%;
+.row{
+    height: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

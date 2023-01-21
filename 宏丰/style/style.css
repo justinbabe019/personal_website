@@ -1,20 +1,20 @@
+* {
+    box-sizing: border-box;
+  }
 .content{
     width: auto;
     margin-left: 20%;
     margin-right: 5%;
 }
+body{
+    margin: 0;
+}
+/*title*/
 .title{
     position: relative;
     text-align: center;
     color: red;
     text-shadow: grey 1px 0 10px;
-}
-footer{
-    text-align: center;
-    margin:10px;
-    padding:10px;
-    color:black;
-    background-color: #04AA6D;
 }
 .title .bg{
     width: 100%;
@@ -25,9 +25,39 @@ footer{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-body{
-    margin: 0;
+/*footer*/
+footer{
+    text-align: center;
+    margin:10px;
+    padding:10px;
+    color:black;
+    background-color: #04AA6D;
 }
+#footer-first-container{
+    height: 120px;
+}
+.column{
+    float:left;
+}
+.content .row2{
+    margin: 20px;
+    height: 80px;
+}
+.column img{
+    width: 100%;
+}
+.row2 img{
+    width: 30px;
+    height: 30px;
+}
+.left{
+    width:25%;
+}
+.right{
+    width:50%;
+}
+/*footer end*/
+
 /*nav bar start*/
 #EN a:hover{
     color:#04AA6D;
