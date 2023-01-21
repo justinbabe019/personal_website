@@ -1,0 +1,36 @@
+.intro-bg h2,p,h3{
+    opacity: 100%;
+}
+.intro p{
+    padding:10px;
+    margin-left:10px;
+    margin-right: 10px;
+}
+.intro-below p{
+    font-size: 20px;
+    border-radius: 20px;
+    border-style:solid;
+    border-color: red;
+}
+.intro-below{
+    width:120px;
+    text-align: center;
+    margin-left: 40%;
+}
+.intro-bewlow p:hover{
+    border-color:black;
+}
+.intro a{
+    color:red;
+    text-decoration: none;
+}
+.intro a:hover{
+    color: black;
+}
+.intro{
+    background-color: rgba(135, 206, 250,.3);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 10px;
+    text-align: center;
+}

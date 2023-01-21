@@ -1,0 +1,56 @@
+.content{
+    width: auto;
+    margin-left: 20%;
+    margin-right: 5%;
+}
+.title{
+    text-align: center;
+    padding-top: 20%;
+}
+body{
+    margin: 0;
+}
+.title-pic{
+    margin-bottom:10px;
+}
+/*nav bar start*/
+#EN a:hover{
+    color:#04AA6D;
+}
+#EN{
+    padding: 8px;
+    text-align:center;
+}
+#EN a{
+    text-align: center;
+    text-decoration: none;
+    color:black;
+}
+.nav-bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+.nav-bar li.page{
+    text-align: center;
+}
+.nav-bar li.page a{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.nav-bar li.page a.active{
+    background-color: #04AA6D;
+    color: white;
+}
+.nav-bar li.page a:hover:not(.active){
+    background-color: #555;
+    color: white;
+}
+/*nav bar end*/
