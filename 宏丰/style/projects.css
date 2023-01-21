@@ -1,0 +1,35 @@
+.row{
+    height: 100px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.top .column :hover{
+    color: white;
+    background-color: #b53021;
+}
+.top .column h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color:black;
+    text-align: center;
+}
+.top .column a{
+    text-decoration: none;
+    color:black;
+}
+.company{
+    margin: 20px 0px 20px 0px;
+}
+/*project container*/
+.project{
+    margin-top:20px;
+    margin-bottom:20px;
+    height:200px;
+    box-shadow: 3px 5px 10px 10px lightgrey;
+}
+.project img{
+    height: 200px;
+}
+/*end of project container*/
