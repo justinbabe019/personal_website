@@ -1,8 +1,13 @@
-.first{
+@media screen and (max-width: 600px) {
+    .first, .second {
+      width: 100%;
+    }
+}
+.first, .second{
     float:left;
 }
 .left{
-    width: 50%;
+    width: 10px;
 }
 .right{
     width: 50%;
