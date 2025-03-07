@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './navbar';
 import reactLogo from './assets/react.svg'
+import tailwindLogo from './assets/tailwindLogo.svg.png'
 import viteLogo from '/vite.svg'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
@@ -30,7 +31,7 @@ function App() {
     document.body.appendChild(renderer.domElement);
 
     // lights start
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
     scene.add(ambientLight);
 
     const spotLight = new THREE.SpotLight(0xffffff, 0.5);
@@ -51,7 +52,7 @@ function App() {
 
     const earthTexture = new THREE.TextureLoader().load('/src/assets/earth_daymap.jpg');
     const earthNormalTexture = new THREE.TextureLoader().load('/src/assets/earth_normal_map.tif');
-    const sphereGeometry = new THREE.SphereGeometry( 15, 32, 16 ); 
+    const sphereGeometry = new THREE.SphereGeometry( 32, 64, 32); 
     const sphereMaterial = new THREE.MeshStandardMaterial( { map: earthTexture, normalMap: earthNormalTexture} ); 
     const sphereMesh = new THREE.Mesh( sphereGeometry, sphereMaterial ); 
     scene.add(sphereMesh);
@@ -97,23 +98,25 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar /> {/* Navbar is part of the global layout */}
-        <Routes>
-        </Routes>
-      </Router>
-      <h1>Tech stack</h1>
+      <Navbar /> {/* Navbar is part of the global layout */}
+
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
+
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+
         <a href="https://www.calligraphr.com/en/" target="_blank">
           <img src={reactLogo} className="logo" alt = "calligraphr"></img>
         </a>
+        <a href="https://tailwindcss.com/" target="_blank">
+          <img src={tailwindLogo} className="logo" alt="tailwind css logo"></img>
+        </a>
       </div>
+
       <div>
         <canvas id="threeCanvas"></canvas>
       </div>

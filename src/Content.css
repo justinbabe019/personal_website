@@ -1,0 +1,39 @@
+#root {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  max-width: 100%; /* Prevent horizontal overflow */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  text-align: left;
+  position: relative; /* Ensure absolute positioning works correctly */
+}
+
+.contentDiv{
+  display: block;
+  width: 100%;
+  max-width: 100%; /* Prevent horizontal overflow */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+main {
+   padding-left: 5%;
+   padding-top: 5%;
+   top: 0;
+   position: absolute;
+   z-index: 100; /* Ensure it is above the Three.js canvas */
+   color: white;
+   text-align: left;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   box-sizing: border-box; /* Include padding in width and height */
+ }
+
+section {
+   padding: 10px;
+   margin: 50px;
+ }
+
+.mid-header {
+   gap: 10px; /* Space between grid items */
+   align-items: center;
+ }

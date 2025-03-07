@@ -1,0 +1,29 @@
+/* navbar.css */
+nav {
+  position: fixed;
+  text-align: right;
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  background-color: #333; /* Dark background for visibility */
+  padding: 10px; /* Add some padding */
+  width: 20%; /* Adjust width as needed */
+  right: 5%; /* Position from the right edge */
+  top: 50%; /* Position in the middle vertically */
+  transform: translateY(-50%); /* Adjust for exact center */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+nav a {
+  color: white; /* Light text color */
+  margin: 30px 0; /* Add space between links (vertical only) */
+  text-decoration: none; /* Remove underline */
+  font-size: 18px; /* Increase font size */
+}
+
+nav a:hover {
+  color: #747bff; /* Change color on hover */
+}
