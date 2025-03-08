@@ -12,7 +12,7 @@ html, body {
   max-width: 1280px;
   margin: 0;
   padding: 2rem;
-  z-index: 99;
+  z-index: 90;
   text-align: right;
   color: white;
   min-height: 100vh;
@@ -24,7 +24,7 @@ html, body {
   text-align: left;
   overflow: visible;
   min-height: 200vh; 
-  z-index: 100;
+  z-index: 10;
   color: white;
 }
 .contentDiv section {
@@ -48,7 +48,6 @@ body {
   margin: 0;
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
-  background-color: #242424; /* Set a default background color */
   position: flex; /* FIXED */
 }
 

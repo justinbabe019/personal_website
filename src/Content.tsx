@@ -5,7 +5,7 @@ function Content() {
   return (
     <>
     <div className='contentDiv'>
-      <section>
+      <section id="home">
         <h1>Angie Leong</h1>
         <h2>Welcome to my portfolio website!</h2>
         <blockquote>I like making stuff and trying out new things</blockquote>
@@ -43,8 +43,8 @@ function Content() {
         <p>now u can see where the theme for this website comes from XD</p>
       </section>
 
-      <section>
-        <section>
+      <section id="projects">
+        <section id="gameDev">
         <h1>Game Dev</h1>
         <p>I started doing game dev at age 13 with Unity</p>
 
@@ -75,7 +75,7 @@ function Content() {
           
         </section>
 
-        <section>
+        <section id="webDev">
         <h1>Web Dev</h1>
         <p>again, at 12.5 yo, probs more accurately 7th grade</p>
         <p>I started coding HTML CSS on some random websites</p>

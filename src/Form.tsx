@@ -56,7 +56,7 @@ export default function Form() {
         <option value="Miss">Miss</option>
         <option value="Dr">Dr</option>
       </select>
-      <input type="text" placeholder="Name" {...register("Name", 
+      <input className=" " type="text" placeholder="Name" {...register("Name", 
       {
         required: "This field is required!", 
         max: {
@@ -69,14 +69,13 @@ export default function Form() {
         }
       })} />
       {errors.Name && <span>{errors.Name.message}</span>}
-      <input type="text" placeholder="Email" {...register("Email", 
+      <input className=" " type="text" placeholder="Email" {...register("Email", 
         {
-          required: true,
-
+          required: "Email is required!",
           pattern: /^\S+@\S+$/i
         })} />
       {errors.Email && <span>{errors.Email.message}</span>}
-      <input type="tel" placeholder="Tel" {...register("Tel", 
+      <input className=" " type="tel" placeholder="Tel" {...register("Tel", 
       {
         required:false, 
         max: {
@@ -85,7 +84,7 @@ export default function Form() {
         }
       })} />
       {errors.Tel && <span>{errors.Tel.message}</span>}
-      <input type="text" placeholder="Message" {...register("Message", 
+      <input className=" " type="text" placeholder="Message" {...register("Message", 
         {
           required: "Message is required!",
           min:{
@@ -99,7 +98,7 @@ export default function Form() {
         })} />
       {errors.Message && <span>{errors.Message.message}</span>}
 
-      <input type="submit" />
+      <input className="hover:bg-sky-700"  type="submit" />
     </form>
     </>
   );

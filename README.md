@@ -5,6 +5,7 @@
 - sonner
 - emailJS (npm install @emailjs/browser)
 - react-hook-form
+- Tailwind CSS (npm install tailwindcss @tailwindcss/vite)
 
 # React + TypeScript + Vite
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './navbar';
 import LoadingScreen from './LoadingScreen.tsx';
+import Contact from './Contact.tsx'
 import reactLogo from './assets/react.svg'
 import tailwindLogo from './assets/tailwindLogo.svg.png'
 import viteLogo from '/vite.svg'
@@ -64,6 +65,13 @@ function App() {
     const sphereMaterial = new THREE.MeshStandardMaterial( { map: earthTexture, normalMap: earthNormalTexture} ); 
     const sphereMesh = new THREE.Mesh( sphereGeometry, sphereMaterial ); 
     scene.add(sphereMesh);
+
+    // initiate sphere position
+    // Macao position:
+    sphereMesh.rotation.x = 0.4;
+    sphereMesh.rotation.y = 2.7;
+    sphereMesh.rotation.z = 0;
+
     // objects end
 
     // helpers start
@@ -122,7 +130,7 @@ function App() {
       camera.position.z = cameraZ;
       camera.position.x = scrollProgress * -40;  // Horizontal movement
       camera.position.y = scrollProgress * -20;  // Vertical movement
-    
+
       // Update sphere rotation
       sphereMesh.rotation.x += rotationSpeed;
       sphereMesh.rotation.y += rotationSpeed;
@@ -136,6 +144,7 @@ function App() {
       renderer.render(scene, camera);
     }
     animate();
+
 
     return () => {
       window.removeEventListener('scroll', moveCamera);
@@ -154,8 +163,10 @@ function App() {
         } bg-black text-gray-100`}
       >
       */}
-
-      <div>
+      <Navbar />
+      <Contact />
+      
+      <div className="logoContainer ">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -171,6 +182,7 @@ function App() {
           <img src={tailwindLogo} className="logo" alt="tailwind css logo"></img>
         </a>
       </div>
+      
 
       <div>
         <canvas id="threeCanvas"></canvas>

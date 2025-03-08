@@ -1,15 +1,13 @@
 /* navbar.css */
 nav {
-  position: fixed;
   text-align: right;
-  display: flex;
-  flex-direction: column; /* Stack links vertically */
+  position: fixed;
   padding: 10px; /* Add some padding */
   width: 20%; /* Adjust width as needed */
   right: 5%; /* Position from the right edge */
   top: 50%; /* Position in the middle vertically */
   transform: translateY(-50%); /* Adjust for exact center */
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1;
 }
 
 h3 {
