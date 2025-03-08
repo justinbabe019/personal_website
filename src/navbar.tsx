@@ -23,8 +23,8 @@ function Navbar() {
             <li></li>
           </ul>
 
-          <li><a href=''><h3>Hardware</h3></a></li>
-          <li><a href='https://www.linkedin.com/in/angie-leong-nc/'>LinkedIn</a></li>
+          <li><a href='#hardware'><h3>Hardware</h3></a></li>
+          <li><a href='https://www.linkedin.com/in/angie-leong-nc/' target="_blank">LinkedIn</a></li>
         </ul>
           <li><a href='./Contact.tsx'>Contact Me</a></li>
       </ul>
