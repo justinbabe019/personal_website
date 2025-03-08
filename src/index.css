@@ -1,19 +1,40 @@
-/* Ensure the body and root container take up the full viewport height */
+/* File name: index.css */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%; /* Full height */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  height: 100%; 
+  width: 100%;
+  overflow: auto; /* Prevent horizontal scrolling */
 }
 
 /* index.css or App.css */
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
   padding: 2rem;
   z-index: 99;
   text-align: right;
   color: white;
+  min-height: 100vh;
+  position: absolute; /* FIXED */
+}
+
+.contentDiv{
+  flex-direction: column;
+  text-align: left;
+  overflow: visible;
+  overflow-x: hidden;
+  min-height: 200vh; 
+  z-index: 100;
+  color: white;
+  background-color: black;
+}
+.contentDiv section {
+  padding: 10px;
+  margin: 50px;
+}
+.contentDiv .mid-header {
+  align-items: center;
 }
 
 a {
@@ -30,8 +51,7 @@ body {
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
   background-color: #242424; /* Set a default background color */
-  overflow: hidden; /* Prevent any scrolling */
-  position: flex; /* Ensure absolute positioning works correctly */
+  position: flex; /* FIXED */
 }
 
 h1 {

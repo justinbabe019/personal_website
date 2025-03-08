@@ -1,30 +1,31 @@
+/* File name: Content.css */
 #root {
   height: 100%;
   width: 100%;
   flex-direction: column;
   max-width: 100%; /* Prevent horizontal overflow */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
   text-align: left;
-  position: relative; /* Ensure absolute positioning works correctly */
+  position: absolute; /* Ensure absolute positioning works correctly */
+  overflow: visible;
+  overflow-x: hidden;
+  min-height: 200vh; /* Fix the 1--vh typo */
 }
 
 .contentDiv{
   display: block;
   width: 100%;
   max-width: 100%; /* Prevent horizontal overflow */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 main {
    padding-left: 5%;
    padding-top: 5%;
    top: 0;
-   position: absolute;
-   z-index: 100; /* Ensure it is above the Three.js canvas */
+   z-index: 2; /* Ensure it is above the Three.js canvas */
    color: white;
    text-align: left;
    width: 100%; /* Full width */
    height: 100%; /* Full height */
+   min-height: 200vh;
    box-sizing: border-box; /* Include padding in width and height */
  }
 

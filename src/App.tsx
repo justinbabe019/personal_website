@@ -1,6 +1,9 @@
+// File name: App.tsx
+
 import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './navbar';
+import LoadingScreen from './LoadingScreen.tsx';
 import reactLogo from './assets/react.svg'
 import tailwindLogo from './assets/tailwindLogo.svg.png'
 import viteLogo from '/vite.svg'
@@ -10,6 +13,9 @@ import Stats from 'three/examples/jsm/libs/stats.module.js';
 import './App.css'
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(()=>{
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -36,28 +42,42 @@ function App() {
 
     const spotLight = new THREE.SpotLight(0xffffff, 0.5);
     // spotLight.castShadow = true;
-    spotLight.position.set(0, 0, 20);
+    spotLight.position.set(0, 0, 50);
     spotLight.shadow.mapSize.width = 1024; // Increase shadow resolution
     spotLight.shadow.mapSize.height = 1024;
     spotLight.shadow.camera.near = 0.5; // Adjust shadow camera near/far planes
     spotLight.shadow.camera.far = 50;
     scene.add(spotLight)
 
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    dirLight.position.set(0, 0, 50)
+    scene.add(dirLight);
+
     const lightHelper = new THREE.SpotLightHelper(spotLight);
     scene.add(lightHelper);
     // lights end
-
-    const gridHelper = new THREE.GridHelper(200, 50);
-    scene.add(gridHelper);
-
+    
+    // objects start
     const earthTexture = new THREE.TextureLoader().load('/src/assets/earth_daymap.jpg');
     const earthNormalTexture = new THREE.TextureLoader().load('/src/assets/earth_normal_map.tif');
     const sphereGeometry = new THREE.SphereGeometry( 32, 64, 32); 
     const sphereMaterial = new THREE.MeshStandardMaterial( { map: earthTexture, normalMap: earthNormalTexture} ); 
     const sphereMesh = new THREE.Mesh( sphereGeometry, sphereMaterial ); 
     scene.add(sphereMesh);
+    // objects end
 
+    // helpers start
+    const gridHelper = new THREE.GridHelper(200, 50);
+    scene.add(gridHelper);
+
+    
+    // Disable OrbitControls zoom
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false; // Add this line
+    controls.enablePan = false; // Optional: disable panning
+
+    const stats = new Stats();
+    document.body.appendChild(stats.dom);
 
     function addStar(){
       const geometry = new THREE.SphereGeometry(0.25, 24, 24);
@@ -68,6 +88,8 @@ function App() {
       scene.add(star);
     };
     Array(200).fill().forEach(addStar);
+    // helpers end
+
     const spaceTexture = new THREE.TextureLoader().load(
       '/src/assets/space.jpeg',
       (texture) => {
@@ -80,24 +102,59 @@ function App() {
     );
     scene.background = spaceTexture;
 
-    const stats = new Stats();
-    document.body.appendChild(stats.dom);
 
-    const animate = () => {
-      stats.update();
-      controls.update();
-      // animation start
-      sphereMesh.rotation.x += 0.01;
-      sphereMesh.rotation.y += 0.01;
-      // animation end
+    function moveCamera() {
+      const scrollY = document.scrollingElement.scrollTop;
+      const scrollHeight = document.scrollingElement.scrollHeight - window.innerHeight;
+    
+      // Calculate scroll progress (0 to 1)
+      const scrollProgress = Math.min(scrollY / scrollHeight, 1);
+    
+      // Camera movement parameters
+      const maxCameraZ = 96;      // Starting position
+      const minCameraZ = 30;      // Closest zoom
+      const cameraZ = maxCameraZ - (scrollProgress * (maxCameraZ - minCameraZ));
+    
+      // Sphere rotation parameters
+      const rotationSpeed = 0.002;
+    
+      // Update camera position
+      camera.position.z = cameraZ;
+      camera.position.x = scrollProgress * -40;  // Horizontal movement
+      camera.position.y = scrollProgress * -20;  // Vertical movement
+    
+      // Update sphere rotation
+      sphereMesh.rotation.x += rotationSpeed;
+      sphereMesh.rotation.y += rotationSpeed;
+      sphereMesh.rotation.z += rotationSpeed * 0.5;
+    }
+    window.addEventListener('scroll', moveCamera);
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
       renderer.render(scene, camera);
-      window.requestAnimationFrame(animate);
-    };
+    }
     animate();
+
+    return () => {
+      window.removeEventListener('scroll', moveCamera);
+    };
   }, []);
 
   return (
     <>
+
+      {/*
+      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
+
+      <div
+        className={`min-h-screen transition-opacity duration-700 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        } bg-black text-gray-100`}
+      >
+      */}
+
       <Navbar /> {/* Navbar is part of the global layout */}
 
       <div>
@@ -120,6 +177,7 @@ function App() {
       <div>
         <canvas id="threeCanvas"></canvas>
       </div>
+
     </>
   )
 
