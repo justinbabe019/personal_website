@@ -1,9 +1,11 @@
 // components/Navbar.tsx
 import React from 'react';
+import Contact from './Contact.tsx'
 import './navbar.css'
 
 function Navbar() {
   return (
+    <>
     <nav>
       <ul>
         <li><a href="/"><h2>Home</h2></a></li>
@@ -22,10 +24,11 @@ function Navbar() {
           </ul>
 
           <li><a href=''><h3>Hardware</h3></a></li>
-          <li><a href='https://www.linkedin.com/in/angie-leong-nc/'><img src=''></img></a></li>
+          <li><a href='https://www.linkedin.com/in/angie-leong-nc/'><img src=''>LinkedIn</img></a></li>
         </ul>
       </ul>
     </nav>
+    </>
   );
 }
 

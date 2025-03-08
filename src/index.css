@@ -23,11 +23,9 @@ html, body {
   flex-direction: column;
   text-align: left;
   overflow: visible;
-  overflow-x: hidden;
   min-height: 200vh; 
   z-index: 100;
   color: white;
-  background-color: black;
 }
 .contentDiv section {
   padding: 10px;
