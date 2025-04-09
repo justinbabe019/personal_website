@@ -3,10 +3,53 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Navbar from './navbar.tsx'; // Assuming nav is a React component
 import App from './App.tsx'
-import Project from './Project.tsx'
+import Projects from './Project.tsx'
 
+const projects = [
+  {
+    id: "towerDefence",
+    name: 'Tower Defense Game',
+    description: 'A 3D tower defense game with custom assets and mechanics.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#towerDefense',
+  },
+  {
+    id: "adventureGame",
+    name: 'Adventure Game',
+    description: 'A collaborative adventure game with custom animations and mechanics.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#adventureGame',
+  },
+  {
+    id: "mazeGame",
+    name: 'Maze Game',
+    description: 'A maze game with challenging puzzles and levels.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#mazeGame',
+  },
+  {
+    id: "portfolio",
+    name: 'This Portfolio',
+    description: 'A personal portfolio website built with React and Three.js.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#portfolio',
+  },
+  {
+    id: "ascendTech",
+    name: 'Ascend Tech',
+    description: 'A web application for managing tech projects and teams.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#ascendTech',
+  },
+  {
+    id: "secureBlox",
+    name: 'Secure Blox',
+    description: 'A blockchain-based security application.',
+    imgs: ['https://via.placeholder.com/150'],
+    link: '#secureBlox',
+  },
+];
 
 
 createRoot(document.getElementById('root')!).render(
@@ -55,7 +98,7 @@ createRoot(document.getElementById('root')!).render(
         <h1>Welcome to my projects</h1>
       </section>
 
-      <Projects />
+      <Projects projects={projects} />
 
       <section id="gameDev">
       <h1>Game Dev</h1>
