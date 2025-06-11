@@ -12,6 +12,8 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.12",
+    "@theatre/core": "^0.7.2",
+    "@theatre/studio": "^0.7.2",
     "dat.gui": "^0.7.9",
     "emailjs": "^4.0.3",
     "react": "^19.0.0",

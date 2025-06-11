@@ -12,12 +12,19 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 import './App.css'
+import { getProject } from '@theatre/core';
+
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(()=>{
+    // Theatre js project initialization
+    const project = getProject('portfolio');
+    const sheet = project.sheet('Portfolio');
+
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       50, 
@@ -26,6 +33,17 @@ function App() {
       1000
     );
     camera.position.z = 96;
+    const cameraObject = sheet.object('Camera', {
+      position: {
+        x: camera.position.x,
+        y: camera.position.y,
+        z: camera.position.z,
+      }
+    });
+    cameraObject.onValuesChange((values) => {
+      const { x: px, y: py, z: pz } = values.position;
+      camera.position.set(px, py, pz);
+    });
 
     const renderer = new THREE.WebGLRenderer({
       canvas: document.querySelector('#threeCanvas'), 
@@ -65,12 +83,47 @@ function App() {
     const sphereMaterial = new THREE.MeshStandardMaterial( { map: earthTexture, normalMap: earthNormalTexture} ); 
     const sphereMesh = new THREE.Mesh( sphereGeometry, sphereMaterial ); 
     scene.add(sphereMesh);
+    
+    // binding theatre.js to the sphere mesh
+    const earthObj = sheet.object('Earth', {
+      position: {
+        x: sphereMesh.position.x,
+        y: sphereMesh.position.y,
+        z: sphereMesh.position.z,
+      },
+      rotation: {
+        x: sphereMesh.rotation.x,
+        y: sphereMesh.rotation.y,
+        z: sphereMesh.rotation.z,
+      },
+      scale: {
+        x: sphereMesh.scale.x,
+        y: sphereMesh.scale.y,
+        z: sphereMesh.scale.z,
+      },
+    })
+    earthObj.onValuesChange((values) => {
+      const { x: rx, y: ry, z: rz } = values.rotation
+      sphereMesh.rotation.set(rx, ry, rz)
+    
+      const { x: px, y: py, z: pz } = values.position
+      sphereMesh.position.set(px, py, pz)
+    
+      const { x: sx, y: sy, z: sz } = values.scale
+      sphereMesh.scale.set(sx, sy, sz)
+    })
+    
 
     // initiate sphere position
     // Macao position:
-    sphereMesh.rotation.x = 0.4;
-    sphereMesh.rotation.y = 2.7;
-    sphereMesh.rotation.z = 0;
+    function setMacaoPosition() {
+      sphereMesh.rotation.x = 0.4;
+      sphereMesh.rotation.y = 2.7;
+      sphereMesh.rotation.z = 0;
+      sphereMesh.position.set(0, 0, 0);
+    }
+    setMacaoPosition();
+    window.addEventListener('scroll', () => {setMacaoPosition()});
 
     // objects end
 

@@ -5,6 +5,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import Projects from './Project.tsx'
+import studio from '@theatre/studio'
+import project from '@theatre/core'
+studio.initialize();
 
 const projects = [
   {
