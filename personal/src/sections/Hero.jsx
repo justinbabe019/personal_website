@@ -36,7 +36,7 @@ export default function Hero() {
             <h1 className="hero-name">Angie Leong</h1>
             <p className="hero-tagline">
                 Software Engineer<br />
-                From Macao to the World
+                <span style={{ fontSize: '0.8em', opacity: 0.8 }}>From Macao to the World</span>
             </p>
             <div className="hero-scroll-indicator">
                 <span>Scroll to explore</span>
