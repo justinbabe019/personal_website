@@ -4,26 +4,28 @@ export default function Sidebar({ sections }) {
     const [active, setActive] = useState('hero')
 
     useEffect(() => {
-        const observers = []
+        // Use a single observer with a rootMargin that acts as a "trigger line"
+        // roughly 30% from the top of the screen. This fixes the bug where
+        // extremely tall sections (like Hobbies) would never reach a 35% threshold.
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActive(entry.target.id)
+                    }
+                })
+            },
+            {
+                rootMargin: '-30% 0px -65% 0px'
+            }
+        )
 
         sections.forEach(({ id }) => {
             const el = document.getElementById(id)
-            if (!el) return
-
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setActive(id)
-                    }
-                },
-                { threshold: 0.35 }
-            )
-
-            observer.observe(el)
-            observers.push(observer)
+            if (el) observer.observe(el)
         })
 
-        return () => observers.forEach(o => o.disconnect())
+        return () => observer.disconnect()
     }, [sections])
 
     const scrollTo = (id) => {
