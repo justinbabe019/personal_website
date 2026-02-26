@@ -11,66 +11,9 @@ function Globe() {
     const meshRef = useRef()
     const { camera } = useThree()
 
-    // Create a procedural earth-like texture
-    const earthTexture = useMemo(() => {
-        const canvas = document.createElement('canvas')
-        canvas.width = 1024
-        canvas.height = 512
-        const ctx = canvas.getContext('2d')
-
-        // Ocean base
-        const gradient = ctx.createLinearGradient(0, 0, 0, 512)
-        gradient.addColorStop(0, '#0c2d48')
-        gradient.addColorStop(0.3, '#145374')
-        gradient.addColorStop(0.7, '#145374')
-        gradient.addColorStop(1, '#0c2d48')
-        ctx.fillStyle = gradient
-        ctx.fillRect(0, 0, 1024, 512)
-
-        // Simplified continent shapes
-        ctx.fillStyle = '#2d6a4f'
-        // Eurasia
-        ctx.beginPath()
-        ctx.ellipse(550, 170, 180, 60, 0.1, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.beginPath()
-        ctx.ellipse(680, 200, 80, 50, 0.3, 0, Math.PI * 2)
-        ctx.fill()
-        // Africa  
-        ctx.beginPath()
-        ctx.ellipse(520, 280, 50, 70, 0.1, 0, Math.PI * 2)
-        ctx.fill()
-        // Americas
-        ctx.beginPath()
-        ctx.ellipse(250, 180, 40, 70, 0.2, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.beginPath()
-        ctx.ellipse(270, 300, 35, 60, -0.2, 0, Math.PI * 2)
-        ctx.fill()
-        // Australia
-        ctx.beginPath()
-        ctx.ellipse(780, 320, 35, 25, 0.3, 0, Math.PI * 2)
-        ctx.fill()
-        // Southeast Asia / China region (near Macao)
-        ctx.fillStyle = '#3a7d5c'
-        ctx.beginPath()
-        ctx.ellipse(710, 210, 50, 40, 0.2, 0, Math.PI * 2)
-        ctx.fill()
-
-        // Macao marker - small golden dot
-        ctx.fillStyle = '#f0a830'
-        ctx.beginPath()
-        ctx.arc(700, 220, 4, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.fillStyle = 'rgba(240, 168, 48, 0.3)'
-        ctx.beginPath()
-        ctx.arc(700, 220, 10, 0, Math.PI * 2)
-        ctx.fill()
-
-        const texture = new THREE.CanvasTexture(canvas)
-        texture.needsUpdate = true
-        return texture
-    }, [])
+    // Load a high-res photorealistic earth texture map
+    const textureLoader = new THREE.TextureLoader()
+    const earthTexture = useMemo(() => textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg'), [])
 
     // Atmosphere glow
     const atmosphereMaterial = useMemo(() => {
@@ -152,7 +95,7 @@ function Globe() {
                 <sphereGeometry args={[1.5, 64, 64]} />
                 <meshStandardMaterial
                     map={earthTexture}
-                    roughness={0.8}
+                    roughness={0.6}
                     metalness={0.1}
                 />
             </mesh>
