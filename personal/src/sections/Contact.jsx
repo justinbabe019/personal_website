@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import '../styles/form.css'
 
 const links = [
     {
@@ -15,17 +16,7 @@ const links = [
         ),
         handle: '@angie_leong.n.c',
     },
-    {
-        label: 'Email',
-        href: 'mailto:ncleong@umich.edu',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-            </svg>
-        ),
-        handle: 'ncleong@umich.edu',
-    },
+
     {
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/nga-chi-angie-leong-a37a0924a',
@@ -68,6 +59,18 @@ export default function Contact() {
                 stagger: 0.12,
                 ease: 'power2.out',
             })
+            gsap.from('.contact-form-container', {
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 65%',
+                    toggleActions: 'play none none reverse',
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2,
+                ease: 'power3.out',
+            })
         }, sectionRef)
 
         return () => ctx.revert()
@@ -94,6 +97,28 @@ export default function Contact() {
                         <span>{link.handle}</span>
                     </a>
                 ))}
+            </div>
+
+            <div className="contact-form-container">
+                <form
+                    className="contact-form"
+                    action="https://formspree.io/f/YOUR_FORM_ID_HERE"
+                    method="POST"
+                >
+                    <div className="form-group">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" id="name" name="name" className="form-control" required placeholder="John Doe" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" name="email" className="form-control" required placeholder="john@example.com" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea id="message" name="message" className="form-control" required placeholder="Hello Angie!"></textarea>
+                    </div>
+                    <button type="submit" className="submit-btn">Send Message</button>
+                </form>
             </div>
 
             <p className="contact-footer">

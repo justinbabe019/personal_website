@@ -69,27 +69,27 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.3);
+    /* Always visible but faded */
     white-space: nowrap;
     transition: all 0.3s ease;
-    pointer-events: none;
-    transform: translateX(8px);
+    transform: translateX(0);
     padding: 4px 10px;
     border-radius: 6px;
     background: transparent;
 }
 
 .sidebar-item:hover .sidebar-label {
-    color: rgba(255, 255, 255, 0.9);
-    transform: translateX(0);
+    color: rgba(255, 255, 255, 0.7);
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
 }
 
 .sidebar-item.active .sidebar-label {
-    color: rgba(255, 255, 255, 0.6);
-    transform: translateX(0);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* Mobile: bottom bar */
