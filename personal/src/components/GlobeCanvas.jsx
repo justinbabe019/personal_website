@@ -40,53 +40,61 @@ function Globe() {
 
     // Scroll-driven camera animation
     useEffect(() => {
-        const cameraPos = { x: 0, y: 0, z: 4.5 }
-        const targetRotation = { y: 0 }
+        if (!meshRef.current) return
 
-        // Initial position — globe shows Macao region
-        // Macao: ~22.2°N, 113.55°E → rotate globe so that part faces camera
+        // Macao coordinates mapped to sphere texture
         const macaoLon = (113.55 / 360) * Math.PI * 2
-        if (meshRef.current) {
-            meshRef.current.rotation.y = -macaoLon + Math.PI
-        }
+        const macaoLat = (22.2 / 360) * Math.PI * 2
 
-        ScrollTrigger.create({
-            trigger: '#macao',
-            start: 'top bottom',
-            end: 'top top',
-            scrub: 1.5,
-            onUpdate: (self) => {
-                const progress = self.progress
-                if (meshRef.current) {
-                    // Zoom in
-                    camera.position.z = 4.5 - progress * 2.5
-                    // Slight tilt as we zoom
-                    camera.position.y = progress * 0.3
+        // Target rotation to center Macao (with slight offsets for framing)
+        const targetRotY = -macaoLon + Math.PI - 0.2
+        const targetRotX = macaoLat - 0.15
+
+        // Initial rotation for the Hero section (spin it 1.5 times away)
+        meshRef.current.rotation.y = targetRotY - Math.PI * 1.5
+        meshRef.current.rotation.x = -0.4
+
+        const ctx = gsap.context(() => {
+            // Cinematic zoom and spin into Macao
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#macao',
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: 1.5,
                 }
-            }
+            })
+
+            // Spin the earth to Macao's coordinates
+            tl.to(meshRef.current.rotation, {
+                y: targetRotY,
+                x: targetRotX,
+                ease: 'power2.inOut',
+            }, 0)
+
+            // Zoom the camera in close
+            tl.to(camera.position, {
+                z: 2.0, // zoom in significantly
+                y: 0.1, // slight tilt
+                x: 0.4, // shift slightly right
+                ease: 'power2.inOut',
+            }, 0)
+
+            // Fade globe out after macao section
+            gsap.to('.globe-canvas-container', {
+                scrollTrigger: {
+                    trigger: '#hobbies',
+                    start: 'top bottom',
+                    end: 'top center',
+                    scrub: 1,
+                },
+                opacity: 0,
+                ease: 'none'
+            })
         })
 
-        // Fade globe out after macao section
-        ScrollTrigger.create({
-            trigger: '#hobbies',
-            start: 'top bottom',
-            end: 'top center',
-            scrub: 1,
-            onUpdate: (self) => {
-                const container = document.querySelector('.globe-canvas-container')
-                if (container) {
-                    container.style.opacity = 1 - self.progress
-                }
-            }
-        })
+        return () => ctx.revert()
     }, [camera])
-
-    // Auto rotation
-    useFrame((state, delta) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.y += delta * 0.08
-        }
-    })
 
     return (
         <group>
