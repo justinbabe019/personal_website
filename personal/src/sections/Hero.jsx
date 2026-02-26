@@ -33,9 +33,10 @@ export default function Hero() {
 
     return (
         <section id="hero" className="section hero-section" ref={sectionRef}>
-            <h1 className="hero-name">Nga Chi (Angie) Leong</h1>
+            <h1 className="hero-name">Angie Leong</h1>
             <p className="hero-tagline">
-                Software Engineer · From Macao to the World
+                Software Engineer<br />
+                From Macao to the World
             </p>
             <div className="hero-scroll-indicator">
                 <span>Scroll to explore</span>
