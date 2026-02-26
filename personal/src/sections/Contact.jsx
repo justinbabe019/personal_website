@@ -84,7 +84,7 @@ export default function Contact() {
                 — I'd love to hear from you!
             </p>
 
-            <div className="contact-links">
+            <div className="contact-links" style={{ marginBottom: '2rem' }}>
                 {links.map((link, i) => (
                     <a
                         key={i}
